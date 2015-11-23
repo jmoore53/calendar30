@@ -6,7 +6,7 @@ In order to run this and work on content, Ruby must be installed as well as the 
 
 * This repository is for LunchBreak.com. It is a general website for connecting people outside of the internet.
 
-* 0.0.1
+* Version 0.0.1
 
 *All important files for html and css documents can be found in: 
      app/views/*
