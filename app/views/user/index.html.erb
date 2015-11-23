@@ -1,0 +1,17 @@
+<h1 align="center">
+	Welcome to the User Home Schedule:
+</h1>	
+<p>
+	If the user is not signed in, make them sign in.
+</p>
+<p>
+	<%= link_to("Sign up", controller: "user", action: "new")%>
+</p>
+<h4>List of Users:</h4>
+<% if @users.empty? %>
+	<p>There are no users in the database.</p>
+<% else %>
+	<% @users.each do |user| %>
+		<%= user.id %> <%= user.lastN %>, <%= user.firstN + " " + user.email + " " + user.password%> was created: <%= user.created_at %><br>
+	<% end %>
+<% end %>

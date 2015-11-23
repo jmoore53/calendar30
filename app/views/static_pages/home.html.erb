@@ -1,0 +1,19 @@
+<h1 align="center">LunchBreak Home</h1>
+
+
+<style>
+ul#menu li {
+    display:inline;
+}
+</style>
+
+<ul id="menu" align="center">
+	<li>Important Links:</li>
+	<li><%= link_to("Schedule", controller: "user", action: "index")%></li><li> --</li>
+  	<li><%= link_to("Login", controller: "sessions", action: "new")%></li><li> --</li>
+  	<li><%= link_to("Sign up", controller: "user", action: "new")%></li><li> --</li>
+
+	<li><%= link_to("Help", controller: "static_pages", action: "help")%></li><li> --</li>
+	<li><%= link_to("About", controller: "static_pages", action: "about")%></li><li> --</li>
+  	<li><%= link_to("Contact", controller: "static_pages", action: "contact")%></li>
+ </ul>
