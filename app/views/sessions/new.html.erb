@@ -1,1 +1,16 @@
-<h1>Log in</h1>
+<h1 align="center">Log in</h1>
+<table>
+	<%= form_for(:session, url: login_path) do |f| %>
+		<tr>
+			<th><%= f.label :email %>:</th>
+			<th><%= f.text_field :email, class: 'form-control' %></th>
+		</tr>
+		<tr>
+			<th><%= f.label :password %>:</th>
+			<th><%= f.password_field :password %></th>
+		</tr>
+		<tr>
+			<th colspan="2"><%= f.submit %></th>
+		</tr>
+	<% end %>
+</table>
