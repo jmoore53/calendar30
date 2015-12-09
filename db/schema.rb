@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124023154) do
+ActiveRecord::Schema.define(version: 20151209042000) do
 
   create_table "users", force: :cascade do |t|
     t.string   "firstN"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20151124023154) do
     t.date     "dob"
     t.string   "mobile_phone"
     t.string   "password_digest"
+    t.string   "remember_digest"
   end
 
 end
