@@ -1,1 +1,29 @@
 <h1 align="center">Edit Profile</h1>
+<% flash.discard() %>
+<li align="center" style="text-align: center; color:red; list-style-type: none;"><% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: 'name' %>
+<% end %></li>
+
+	<ul style="list-style-type: none;">
+	    <%= form_for(@user) do |f| %>
+	      <li><%= f.label :firstN, "First Name: " %>
+	      <%= f.text_field :firstN %></li>
+
+	      <li><%= f.label :lastN, "Last Name: " %>
+	      <%= f.text_field :lastN %></li>
+
+	      <li><%= f.label :mobile_phone, "Phone Number: " %>
+	      <%= f.text_field :mobile_phone %></li>
+
+	      <li><%= f.label :email, "Email: " %>
+	      <%= f.email_field :email %></li>
+
+	      <li><%= f.label :password, "Password: " %>
+	      <%= f.password_field :password %></li>
+
+	      <li><%= f.label :password_confirmation, "Password Confirmation: " %>
+	      <%= f.password_field :password_confirmation %></li>
+
+	      <li><%= f.submit "Save changes" %></li>
+	    <% end %>
+	</ul>

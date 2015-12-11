@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
       # Log the user in and redirect to the user's show page.
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      remember user
-      redirect_to user
+      redirect_back_or user
     else
       flash.now[:message] = "Invalid Username Password Match! Please try again!"
       render 'new'
