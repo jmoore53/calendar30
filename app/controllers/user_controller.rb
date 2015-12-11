@@ -18,6 +18,9 @@ class UserController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def show
   	if(User.find_by_firstN(params[:firstN]))
   		@user = User.find_by_firstN(params[:firstN])
