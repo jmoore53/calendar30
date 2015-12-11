@@ -1,0 +1,43 @@
+<style>
+ul#menu li {
+    display:inline;
+}
+div.abs_left {
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	font-size: 14px;
+}
+div.abs_right{
+	position: absolute;
+	top: 10px;
+	right: 15px;
+}
+</style>
+
+	<div class="abs_left">
+		<%= link_to("Home", controller: "static_pages", action:"home") %>
+	</div>
+	<div class="abs_right">
+		<ul id="menu">
+			<% if logged_in? == false %>
+				<%= form_for(:session, url: login_path) do |f| %>
+						<table>
+							<li style="font-size: 10px;"><%= f.text_field :email, placeholder: "Email", :size=>"12", class: 'form-control', style: 'border-radius: 3px' %> </li>
+							<li style="font-size: 10px"><%= f.password_field :password, placeholder: "Password", :size=>"10", style: 'border-radius: 3px' %></li>
+					      	<li><%= f.label :remember_me, class: "checkbox inline" do %></li>
+							<li><%= f.check_box :remember_me %></li>
+							<li style="font-size:12px">Remember me </li>
+					      <% end %>
+							<li colspan="2"><%= f.submit "Log in" %></li>
+				<% end %>
+			  				<li style="font-size:14px"> <%= link_to("Sign up", controller: "user", action: "new")%></li>
+			  			</table>
+		  	<% else %>
+		  			<table>
+		  				<li><%= current_user.firstN.capitalize %> </li>
+		  				<li><%= link_to("Log out", logout_path, method: "delete")%></li>
+		  			</table>
+		  	<% end %>
+		</ul>
+	</div>

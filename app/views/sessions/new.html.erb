@@ -1,27 +1,36 @@
 <h1 align="center">Log in</h1>
 
-<% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-<% end %>
+<style>
+div.name{
+	color: #fff ;
+	background-color: #ff1a1a;
+	font-size: 18px;
+	text-align: center;
+}
+</style>
 
-<%= form_for(:session, url: login_path) do |f| %>
-	<table>
-		<tr>
-			<th><%= f.label :email %>:</th>
-			<th><%= f.text_field :email, class: 'form-control' %></th>
-		</tr>
-		<tr>
-			<th><%= f.label :password %>:</th>
-			<th><%= f.password_field :password %></th>
-		</tr>
-		<tr>
-	      <%= f.label :remember_me, class: "checkbox inline" do %>
-			<th><%= f.check_box :remember_me %></th>
-			<th><span>Remember me on this computer</span></th>
-	      <% end %>
-	    </tr>
-		<tr>
-			<th colspan="2"><%= f.submit %></th>
-		</tr>
-	</table>
-<% end %>
+	<% flash.each do |name, msg| -%>
+	      <%= content_tag :div, msg, class: 'name' %>
+	<% end %>
+
+	<%= form_for(:session, url: login_path) do |f| %>
+		<table align="center">
+			<tr>
+				<th><%= f.label :email %>:</th>
+				<th><%= f.text_field :email, placeholder:"Email", class: 'form-control' %></th>
+			</tr>
+			<tr>
+				<th><%= f.label :password %>:</th>
+				<th><%= f.password_field :password, placeholder:"Password" %></th>
+			</tr>
+			<tr>
+		      <%= f.label :remember_me, class: "checkbox inline" do %>
+				<th><%= f.check_box :remember_me %></th>
+				<th><span>Remember me on this computer</span></th>
+		      <% end %>
+		    </tr>
+			<tr>
+				<th colspan="2"><%= f.submit %></th>
+			</tr>
+		</table>
+	<% end %>

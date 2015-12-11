@@ -1,0 +1,32 @@
+<style>
+footer.foot{
+	position: relative;
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #767676;
+    border-top: 1px solid #fff;
+}
+ul#menu {
+	text-align: center;
+    list-style-type: none;
+    margin: 0px auto;
+    padding: 0px;
+}
+ul#menu li {
+    display:inline;
+}
+</style>
+
+<footer class="foot">
+	<div align="center">A Jack Moore Production</div>
+	<div> 
+		<ul id="menu" align="center">
+			<li><%= link_to("Help", controller: "static_pages", action: "help")%></li><li> --</li>
+			<li><%= link_to("About", controller: "static_pages", action: "about")%></li><li> --</li>
+		  	<li><%= link_to("Contact", controller: "static_pages", action: "contact")%></li>
+		</ul>
+	</div>
+</footer>

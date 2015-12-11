@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       remember user
       redirect_to user
     else
-      flash.now[:message] = "Invalid Username Password Match!"
+      flash.now[:message] = "Invalid Username Password Match! Please try again!"
       render 'new'
     end
   end

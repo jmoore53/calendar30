@@ -1,18 +1,20 @@
 <h1 align="center">
-	Welcome to the User Home Schedule:
+	Welcome
 </h1>	
 <p>
 	<% if logged_in? %>
-		Hello <%= current_user.firstN %> <%= link_to "Log out", logout_path, method: "delete" %>
+		Hello <%= current_user.firstN.capitalize %>
+		<h4>List of Users:</h4>
+		<% if @users.empty? %>
+			<p>There are no users in the database.</p>
+		<% else %>
+			<% @users.each do |user| %>
+				<%= user.id %> <%= user.lastN %>, <%= user.firstN + " " + user.email + " "%> was created: <%= user.created_at %><br>
+			<% end %>
+		<% end %>
 	<% else %>
-		<%= link_to("Sign up", controller: "user", action: "new") %> <%= link_to("Login", controller: "sessions", action: "new") %>
+		<h4 align="center">
+			Please <%= link_to("Sign up", controller: "user", action: "new") %> or <%= link_to("Login", controller: "sessions", action: "new") %> to see the schedule.
+		</h4>
 	<% end %>
 </p>
-<h4>List of Users:</h4>
-<% if @users.empty? %>
-	<p>There are no users in the database.</p>
-<% else %>
-	<% @users.each do |user| %>
-		<%= user.id %> <%= user.lastN %>, <%= user.firstN + " " + user.email + " "%> was created: <%= user.created_at %><br>
-	<% end %>
-<% end %>
