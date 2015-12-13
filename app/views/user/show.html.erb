@@ -1,4 +1,13 @@
 <h1 align="center"><%= @user.firstN.capitalize %>'s Profile</h1>
+
+
+<% flash.discard(:notice) %>
+
+<li align="center" style="text-align: center; color:red; list-style-type: none;"><% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: 'name' %>
+<% end %>
+
+
 <ul id="menu">
 	<li><%= link_to("Schedule", controller: "user", action:"index") %></li><li> -- </li>
 	<li><%= link_to("Edit Profile", controller: "user", action:"edit") %></li>
