@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
 	def home
+		if(logged_in?)
+			redirect_to controller:"user", action:"index"
+		end
 	end
 
 	def help
