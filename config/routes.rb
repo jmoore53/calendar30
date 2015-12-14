@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
 
-  get 'user/:id' => 'user#show'
+  #Gets users based on profile number
+  #get 'user/:id' => 'user#show'
 
   match 'user/:firstN', to: 'user#show', via: [:get, :post], :constrain => { :username => /[a-zA-Z-]+/ }
   
-  resources :user  
+  resources :user
 
   root 'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
