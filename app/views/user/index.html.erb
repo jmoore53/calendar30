@@ -1,9 +1,6 @@
-<h1 align="center">
-	User Schedule
-</h1>	
+<h1 align="center">Schedule</h1>	
 <p>
 	<% if logged_in? %>
-		Hello <%= current_user.firstN.capitalize %>
 		<h4>List of Users:</h4>
 		<% if @users.empty? %>
 			<p>There are no users in the database.</p>
