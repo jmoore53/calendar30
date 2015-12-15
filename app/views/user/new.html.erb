@@ -19,6 +19,7 @@
 <div>
 	<%= form_for :user, :url => url_for(:controller => 'user', :action => 'create') do |f| %>
 		<table align="center" style="padding:15px; border-radius: 15px; background-color:#ffa64d">
+			<tr><th colspan="2">Username:</th><th colspan="2"><%= f.text_field :username, :size => 18 %></th></tr>
 			<tr><th>First Name:</th><th><%= f.text_field :firstN, :size => 10 %></th><th> Last Name:</th><th><%= f.text_field :lastN, :size => 15 %></th></tr>
 			<tr><th colspan="2">E-mail:</th><th colspan="2"><%= f.text_field :email, :size => 25 %></th></tr>
 			<tr><th colspan="2">Password:</th><th colspan="2"><%= f.password_field :password, :size => 25 %></th></tr>

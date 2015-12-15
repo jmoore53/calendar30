@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209042000) do
+ActiveRecord::Schema.define(version: 20151215052351) do
 
   create_table "users", force: :cascade do |t|
     t.string   "firstN"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20151209042000) do
     t.string   "mobile_phone"
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.string   "username"
+    t.string   "slug"
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug"
 
 end

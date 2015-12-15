@@ -6,24 +6,27 @@
 
 	<ul style="list-style-type: none;">
 	    <%= form_for(@user) do |f| %>
-	      <li><%= f.label :firstN, "First Name: " %>
+	    	<li><%= f.label :username, "Username: " %>
+	      <%= f.text_field :username %></li>
+
+	    	<li><%= f.label :firstN, "First Name: " %>
 	      <%= f.text_field :firstN %></li>
 
-	      <li><%= f.label :lastN, "Last Name: " %>
+	      	<li><%= f.label :lastN, "Last Name: " %>
 	      <%= f.text_field :lastN %></li>
 
-	      <li><%= f.label :mobile_phone, "Phone Number: " %>
+	      	<li><%= f.label :mobile_phone, "Phone Number: " %>
 	      <%= f.text_field :mobile_phone %></li>
 
-	      <li><%= f.label :email, "Email: " %>
+	      	<li><%= f.label :email, "Email: " %>
 	      <%= f.email_field :email %></li>
 
-	      <li><%= f.label :password, "Password: " %>
+	      	<li><%= f.label :password, "Password: " %>
 	      <%= f.password_field :password %></li>
 
-	      <li><%= f.label :password_confirmation, "Password Confirmation: " %>
+	      	<li><%= f.label :password_confirmation, "Password Confirmation: " %>
 	      <%= f.password_field :password_confirmation %></li>
 
-	      <li><%= f.submit "Save changes" %></li>
+	      	<li><%= f.submit "Save changes" %></li>
 	    <% end %>
 	</ul>

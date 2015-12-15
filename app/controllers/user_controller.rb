@@ -23,11 +23,11 @@ class UserController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:notice] = "User has successfully been updated."
       redirect_to @user
@@ -39,18 +39,12 @@ class UserController < ApplicationController
   end
 
   def show
-  	if(User.find_by_firstN(params[:firstN]))
-  		@user = User.find_by_firstN(params[:firstN])
-  	elsif(User.find_by_id(params[:id]))
-      @user = User.find_by_id(params[:id])
-    else
-  		render :file => 'public/404.html', :status => :not_found, :layout => false
-  	end
+      @user = User.friendly.find(params[:id])
   end
 
   private
     def user_params
-      params.require(:user).permit(:firstN, :lastN, :email, :password, :password_confirmation, :mobile_phone, :dob)
+      params.require(:user).permit(:username, :firstN, :lastN, :email, :password, :password_confirmation, :mobile_phone, :dob)
     end
 
 
@@ -67,7 +61,7 @@ class UserController < ApplicationController
 
     # Confirms the correct user.
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 end

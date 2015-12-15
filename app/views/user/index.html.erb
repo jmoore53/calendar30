@@ -6,7 +6,7 @@
 			<p>There are no users in the database.</p>
 		<% else %>
 			<% @users.each do |user| %>
-				<%= user.id %> <%= user.lastN %>, <%= user.firstN + " " + user.email + " "%> was created: <%= user.created_at %><br>
+				<%= user.username %>||<%= user.id %> <%= user.lastN %>, <%= user.firstN + " " + user.email + " "%> was created: <%= user.created_at %><br>
 			<% end %>
 		<% end %>
 	<% else %>

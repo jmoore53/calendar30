@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :username
+
 	attr_accessor :remember_token
 
 	has_secure_password

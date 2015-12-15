@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
 
   #Gets users based on profile number
-  #get 'user/:id' => 'user#show'
+  get 'user/:id' => 'user#show'
 
-  match 'user/:firstN', to: 'user#show', via: [:get, :post], :constrain => { :username => /[a-zA-Z-]+/ }
+  #match 'user/:firstN', to: 'user#show', via: [:get, :post], :constrain => { :username => /[a-zA-Z-]+/ }
   
   resources :user
 
