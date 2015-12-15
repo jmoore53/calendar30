@@ -1,14 +1,11 @@
 <h1 align="center">Schedule</h1>	
 <p>
 	<% if logged_in? %>
-		<h4>List of Users:</h4>
-		<% if @users.empty? %>
-			<p>There are no users in the database.</p>
-		<% else %>
-			<% @users.each do |user| %>
-				<%= user.username %>||<%= user.id %> <%= user.lastN %>, <%= user.firstN + " " + user.email + " "%> was created: <%= user.created_at %><br>
-			<% end %>
-		<% end %>
+		<!-- 
+			Show Schedule Here.
+		
+		
+		-->
 	<% else %>
 		<h4 align="center">
 			Please <%= link_to("Sign up", controller: "user", action: "new") %> or <%= link_to("Login", controller: "sessions", action: "new") %> to see the schedule.
