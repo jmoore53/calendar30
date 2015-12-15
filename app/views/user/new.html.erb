@@ -19,14 +19,14 @@
 <div>
 	<%= form_for :user, :url => url_for(:controller => 'user', :action => 'create') do |f| %>
 		<table align="center" style="padding:15px; border-radius: 15px; background-color:#ffa64d">
-			<tr><th colspan="2">Username:</th><th colspan="2"><%= f.text_field :username, :size => 18 %></th></tr>
-			<tr><th>First Name:</th><th><%= f.text_field :firstN, :size => 10 %></th><th> Last Name:</th><th><%= f.text_field :lastN, :size => 15 %></th></tr>
-			<tr><th colspan="2">E-mail:</th><th colspan="2"><%= f.text_field :email, :size => 25 %></th></tr>
-			<tr><th colspan="2">Password:</th><th colspan="2"><%= f.password_field :password, :size => 25 %></th></tr>
-			<tr><th colspan="2">Password Confirmation:</th><th colspan="2"><%= f.password_field :password_confirmation, :size => 25 %></th></tr>
-			<tr><th colspan="2">Mobile Phone:</th><th colspan="2"><%= f.telephone_field :mobile_phone %></th></tr>
+			<tr><th colspan="2">Username:</th><th colspan="2"><%= f.text_field :username, placeholder: "Username", :size => 18 %></th></tr>
+			<tr><th>First Name:</th><th><%= f.text_field :firstN, placeholder: "First Name", :size => 10 %></th><th> Last Name:</th><th><%= f.text_field :lastN, placeholder: "Last Name", :size => 15 %></th></tr>
+			<tr><th colspan="2">E-mail:</th><th colspan="2"><%= f.text_field :email, placeholder: "Email", :size => 25 %></th></tr>
+			<tr><th colspan="2">Password:</th><th colspan="2"><%= f.password_field :password, placeholder:"Password", :size => 25 %></th></tr>
+			<tr><th colspan="2">Password Confirmation:</th><th colspan="2"><%= f.password_field :password_confirmation, placeholder:"Password Confirmation", :size => 25 %></th></tr>
+			<tr><th colspan="2">Mobile Phone:</th><th colspan="2"><%= f.telephone_field :mobile_phone, placeholder:"Mobile Phone" %></th></tr>
 			<tr><th colspan="2">Date of Birth:</th><th colspan="2"><%= f.date_field :dob %></th></tr>
-			<tr><th colspan="4"><%= f.submit %></th></tr>
+			<tr><th colspan="4"><%= f.submit "Create Account" %></th></tr>
 		</table>
 	<% end %>
 </div>
