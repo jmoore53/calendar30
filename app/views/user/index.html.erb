@@ -1,14 +1,15 @@
 <h1 align="center">Schedule</h1>	
 <p>
 	<% if logged_in? %>
+		<%= render "layouts/schedule" %>
 		<!-- 
 			Show Schedule Here.
-		
+			Used render to render the schedule here.
 		
 		-->
 	<% else %>
 		<h4 align="center">
-			Please <%= link_to("Sign up", controller: "user", action: "new") %> or <%= link_to("Login", controller: "sessions", action: "new") %> to see the schedule.
+			Please <%= link_to("Sign up", controller: "user", action: "new") %> or <%= link_to("Login", controller: "sessions", action: "new") %> to see your personalized schedule.
 		</h4>
 	<% end %>
 </p>
