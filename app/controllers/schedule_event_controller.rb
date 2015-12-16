@@ -1,0 +1,2 @@
+class ScheduleEventController < ApplicationController
+end
