@@ -1,0 +1,39 @@
+<!-- 
+	HTML Schedule Here.
+-->
+<style>
+h2.schedule{
+	text-align: center;
+	color: red;
+}
+div.datePosition{
+	position: relative;
+	left: 15px ;
+}
+</style>
+<table width="100%" style="background-color:#E3F1FF">
+	<% for i in 0..5 %>
+		<tr>
+			<% for j in 0..4 %>
+				<% x = Time.now + ((i*6) + j).day.to_i %>
+				<% wdayValue = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
+				<% monthValue = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"] %>
+				<td style="height:60px; border: 1px solid black" align="">
+						<% if ((x.day == Time.now.day) && (x.month == Time.now.month)) %>
+							<div class="datePosition" style="color:#007fff;">
+								<%= wdayValue[x.wday] %>, <%= monthValue[x.month-1] %> <%= x.day %>:
+							</div>
+						<% else %>
+							<div class="datePosition">
+								<%= wdayValue[x.wday] %>, <%= monthValue[x.month-1] %> <%= x.day %>:
+							</div>
+						<% end %>
+					<table>
+						<tr><td>Events:</td></tr>
+						<tr><td>Availibility</td></tr>
+					</table>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
+</table>
