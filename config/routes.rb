@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #Gets users based on profile number
   get 'user/:id' => 'user#show'
 
+  resources :schedule_event
   #match 'user/:firstN', to: 'user#show', via: [:get, :post], :constrain => { :username => /[a-zA-Z-]+/ }
   
   resources :user

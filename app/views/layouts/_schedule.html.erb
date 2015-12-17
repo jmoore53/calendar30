@@ -10,28 +10,61 @@ div.datePosition{
 	position: relative;
 	left: 15px ;
 }
+a.schedule_link:hover{
+	color:black;
+}
+a.schedule_link:link{
+	color: black;
+}
+a.schedule_link:visited{
+	color: black;
+}
 </style>
+
+
 <table width="100%" style="background-color:#E3F1FF">
 	<% for i in 0..5 %>
 		<tr>
 			<% for j in 0..4 %>
-				<% x = Time.now + ((i*5) + j).day.to_i %>
+				<% calendarDate = Time.now + ((i*5) + j).day.to_i %>
 				<% wdayValue = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
 				<% monthValue = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"] %>
 				<td style="height:60px; border: 1px solid black" align="">
-						<% if ((x.day == Time.now.day) && (x.month == Time.now.month)) %>
-							<div class="datePosition" style="color:#007fff;">
-								<%= wdayValue[x.wday] %>, <%= monthValue[x.month-1] %> <%= x.day %>:
-							</div>
-						<% else %>
-							<div class="datePosition">
-								<%= wdayValue[x.wday] %>, <%= monthValue[x.month-1] %> <%= x.day %>:
-							</div>
-						<% end %>
-					<table>
-						<tr><td>Events:</td></tr>
-						<tr><td>Availibility</td></tr>
-					</table>
+					<%= link_to "", :class => "schedule_link" do %>
+						<!--
+							^
+							Needs a link to a value for each day, something that will link every date to a page about that date.
+							Maybe add javascript code that can just make every div bigger than the others.
+							Maybe there doesn't need to be a link to a page, just javascript making the selected day larger, showing every event.
+
+							Use Javascript to add an event for that day with people.
+						-->
+							<% if ((calendarDate.day == Time.now.day) && (calendarDate.month == Time.now.month)) %>
+								<div class="datePosition" style="color:#007fff;">
+									<%= wdayValue[calendarDate.wday] %>, <%= monthValue[calendarDate.month-1] %> <%= calendarDate.day %>:
+								</div>
+							<% else %>
+								<div class="datePosition">
+									<%= wdayValue[calendarDate.wday] %>, <%= monthValue[calendarDate.month-1] %> <%= calendarDate.day %>:
+								</div>
+							<% end %>
+							<table>
+								<tr><td>Events:</td></tr>
+								<!--
+									^
+									Show the events for the day by calling a request to the database for events on the day.
+									The events should be added based on the "calendarValue" variable.
+									something like... 
+
+									calendarValue.getEventsForToday()
+								-->
+								<tr><td>Availibility</td></tr>
+								<!--
+									^
+									This should only show a status from green to red based on how busy other people are.
+								-->
+							</table>
+					<% end %>
 				</td>
 			<% end %>
 		</tr>

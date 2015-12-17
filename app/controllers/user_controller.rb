@@ -39,7 +39,7 @@ class UserController < ApplicationController
   end
 
   def show
-      @user = User.friendly.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   private
