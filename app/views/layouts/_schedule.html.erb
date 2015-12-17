@@ -1,36 +1,18 @@
 <!-- 
 	HTML Schedule Here.
 -->
-<style>
-h2.schedule{
-	text-align: center;
-	color: red;
-}
-div.datePosition{
-	position: relative;
-	left: 15px ;
-}
-a.schedule_link:hover{
-	color:black;
-}
-a.schedule_link:link{
-	color: black;
-}
-a.schedule_link:visited{
-	color: black;
-}
-</style>
-
 
 <table width="100%" style="background-color:#E3F1FF">
+	<% dateArray = Array.new %>
 	<% for i in 0..5 %>
 		<tr>
 			<% for j in 0..4 %>
 				<% calendarDate = Time.now + ((i*5) + j).day.to_i %>
 				<% wdayValue = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
 				<% monthValue = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"] %>
+				<% dateArray.insert((i*5) + j, calendarDate.strftime("%m-%d-%y")) %>
 				<td style="height:60px; border: 1px solid black" align="">
-					<%= link_to "", :class => "schedule_link" do %>
+					<%= link_to controller:"schedule_event", action:"show", id:dateArray.values_at((i*5) + j) do %>
 						<!--
 							^
 							Needs a link to a value for each day, something that will link every date to a page about that date.
@@ -40,11 +22,11 @@ a.schedule_link:visited{
 							Use Javascript to add an event for that day with people.
 						-->
 							<% if ((calendarDate.day == Time.now.day) && (calendarDate.month == Time.now.month)) %>
-								<div class="datePosition" style="color:#007fff;">
+								<div style="color:#007fff;">
 									<%= wdayValue[calendarDate.wday] %>, <%= monthValue[calendarDate.month-1] %> <%= calendarDate.day %>:
 								</div>
 							<% else %>
-								<div class="datePosition">
+								<div>
 									<%= wdayValue[calendarDate.wday] %>, <%= monthValue[calendarDate.month-1] %> <%= calendarDate.day %>:
 								</div>
 							<% end %>
