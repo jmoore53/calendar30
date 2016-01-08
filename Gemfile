@@ -30,6 +30,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 gem 'friendly_id'
 
+# Use for windows development
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
