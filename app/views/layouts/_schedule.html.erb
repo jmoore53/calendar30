@@ -2,7 +2,14 @@
 	HTML Schedule Here.
 -->
 
-<table width="100%" style="background-color:#E3F1FF">
+<table width="100%" style="background-color:#E3F1FF; table-layout:fixed">
+	<colgroup>
+		<col width="200px" />
+		<col width="200px" />
+		<col width="200px" />
+		<col width="200px" />
+		<col width="200px" />
+	</colgroup>
 	<% dateArray = Array.new %>
 	<% for i in 0..5 %>
 		<tr>
@@ -11,7 +18,7 @@
 				<% wdayValue = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
 				<% monthValue = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"] %>
 				<% dateArray.insert((i*5) + j, calendarDate.strftime("%m-%d-%y")) %>
-				<td style="height:60px; border: 1px solid black" align="">
+				<td style="height:60px; border:1px solid black; max-width: 200px; overflow: hidden; white-space: nowrap;">
 					<%= link_to controller:"schedule_event", action:"show", id:dateArray.values_at((i*5) + j) do %>
 						<!--
 							^
@@ -31,19 +38,27 @@
 								</div>
 							<% end %>
 							<table>
-								<tr><td>Events:</td></tr>
+								<tr><td>Events:</td>
+									<td>
+										<% @events.each do |event| %>
+											<% if event.date_of_event.to_s == calendarDate.strftime("%Y-%m-%d") %>
+												<b><%=event.title%></b>
+											<% end %>
+										<% end %>
+									</td>
 								<!--
 									^
 									Show the events for the day by calling a request to the database for events on the day.
-									The events should be added based on the "calendarValue" variable.
+									The events should be added based on the "calendarDate" variable.
 									something like... 
 
 									calendarValue.getEventsForToday()
 								-->
+								</tr>
 								<tr><td>Availibility</td></tr>
 								<!--
 									^
-									This should only show a status from green to red based on how busy other people are.
+									This should only show a status from green to red based on how busy other people are compared to you.
 								-->
 							</table>
 					<% end %>

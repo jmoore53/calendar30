@@ -4,7 +4,10 @@ class UserController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def index
-  	@users = User.all
+  	@user = current_user
+    if logged_in?
+      @events = @user.events
+    end
   end
 
   def new
@@ -30,7 +33,7 @@ class UserController < ApplicationController
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:notice] = "User has successfully been updated."
-      redirect_to @user
+      redirect_to @user 
       # Handle a successful update.
     else
       flash[:danger] = "Error on Updating Profile! Please ensure passwords match and are correct."
