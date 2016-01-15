@@ -15,6 +15,9 @@
 	    z-index: 1;
 	}
 </style>
+<!--
+	Need to be able to create an event with people.
+-->
 
 <table width="100%" style="background-color:#E3F1FF; table-layout:fixed">
 	<colgroup>
@@ -34,7 +37,6 @@
 				<% dateArray.insert((i*5) + j, calendarDate.strftime("%m-%d-%y")) %>
 				<td style="height:60px; border:1px solid black; max-width: 200px; overflow: hidden; white-space: nowrap;">
 					<div class="tiptext">
-					<%= link_to controller:"schedule_event", action:"show", id:dateArray.values_at((i*5) + j) do %>
 						<!--
 							^
 							Needs a link to a value for each day, something that will link every date to a page about that date.
@@ -76,10 +78,14 @@
 									This should only show a status from green to red based on how busy other people are compared to you.
 								-->
 							</table>
-					<% end %>
-					<div class="description">
-						<h5  style="margin-left: 15px; margin-top:10px; padding:none;">Description for Events of <%= wdayValue[calendarDate.wday] + " " + calendarDate.strftime("%m-%d") %>:</h5>
-					</div>
+						<div class="description">
+							<h4  style="margin-left: 15px; margin-top:10px; padding:none;">Description for Events of <%= wdayValue[calendarDate.wday] + " " + calendarDate.strftime("%m-%d") %>:</h5>
+							<% @events.each do |event| %>
+									<% if event.date_of_event.to_s == calendarDate.strftime("%Y-%m-%d") %>
+										<h5 style="padding-left:25px"><%=event.time_of_event.strftime("%l:%M %p") + ": " + event.title%></p>
+									<% end %>
+							<% end %>
+						</div>
 					</div>
 				</td>
 			<% end %>
@@ -88,9 +94,9 @@
 </table>
 
 <script type="text/javascript">
-	$(".tiptext").mouseover(function() {
-	    $(this).children("div.description").show();
-	}).mouseout(function() {
+	$(".tiptext").click(function() {
+	    $(this).children("div.description").show().delay(6000).hide("slow");
+	}).mouseleave(function() {
 	    $(this).children("div.description").hide();
 	});
 </script>
