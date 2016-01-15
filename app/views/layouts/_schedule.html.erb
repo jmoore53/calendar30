@@ -1,6 +1,20 @@
 <!-- 
 	HTML Schedule Here.
 -->
+<style>
+	.tiptext {
+	}
+	.description {
+	    display:none;
+	    position:absolute;
+	    border:1px solid #000;
+	    width:600px;
+	    height:250px;
+	    color: white;
+	    background-color: #56A8F0;
+	    z-index: 1;
+	}
+</style>
 
 <table width="100%" style="background-color:#E3F1FF; table-layout:fixed">
 	<colgroup>
@@ -19,6 +33,7 @@
 				<% monthValue = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"] %>
 				<% dateArray.insert((i*5) + j, calendarDate.strftime("%m-%d-%y")) %>
 				<td style="height:60px; border:1px solid black; max-width: 200px; overflow: hidden; white-space: nowrap;">
+					<div class="tiptext">
 					<%= link_to controller:"schedule_event", action:"show", id:dateArray.values_at((i*5) + j) do %>
 						<!--
 							^
@@ -62,8 +77,20 @@
 								-->
 							</table>
 					<% end %>
+					<div class="description">
+						<h5  style="margin-left: 15px; margin-top:10px; padding:none;">Description for Events of <%= wdayValue[calendarDate.wday] + " " + calendarDate.strftime("%m-%d") %>:</h5>
+					</div>
+					</div>
 				</td>
 			<% end %>
 		</tr>
 	<% end %>
 </table>
+
+<script type="text/javascript">
+	$(".tiptext").mouseover(function() {
+	    $(this).children("div.description").show();
+	}).mouseout(function() {
+	    $(this).children("div.description").hide();
+	});
+</script>
