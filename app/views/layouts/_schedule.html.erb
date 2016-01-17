@@ -2,30 +2,42 @@
 	HTML Schedule Here.
 -->
 <style>
-	.tiptext {
+	.schedule_tiptext {
 	}
-	.description {
-	    display:none;
-	    position:absolute;
-	    border:1px solid #000;
-	    width:600px;
-	    height:250px;
-	    color: white;
-	    background-color: #56A8F0;
-	    z-index: 1;
+	.schedule_description {
+		display:none;
+		position:absolute;
+		border: 2px solid #454545; 
+		color: white; 
+		background-color: #56A8F0; 
+		z-index: 1;
+		overflow: auto;
+		border-radius: 5px;
+	}
+	#schedule_top-left{
+		width:48%; height:38%;
+		top:18%; left:8%; 
+	}
+	#schedule_bot-left{
+		width:48%; height:38%;
+		bottom:20%; left:8%;   
+	}
+	#schedule_right{ 
+		width:24%; height:60%; 
+		right:8%; top:20%;"
 	}
 </style>
 <!--
 	Need to be able to create an event with people.
 -->
 
-<table width="100%" style="background-color:#E3F1FF; table-layout:fixed">
+<table width="100%" style="background-color:#b3d9ff; table-layout:fixed">
 	<colgroup>
-		<col width="200px" />
-		<col width="200px" />
-		<col width="200px" />
-		<col width="200px" />
-		<col width="200px" />
+		<col width="20%" />
+		<col width="20%" />
+		<col width="20%" />
+		<col width="20%" />
+		<col width="20%" />
 	</colgroup>
 	<% dateArray = Array.new %>
 	<% for i in 0..5 %>
@@ -35,8 +47,8 @@
 				<% wdayValue = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
 				<% monthValue = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"] %>
 				<% dateArray.insert((i*5) + j, calendarDate.strftime("%m-%d-%y")) %>
-				<td style="height:60px; border:1px solid black; max-width: 200px; overflow: hidden; white-space: nowrap;">
-					<div class="tiptext">
+				<td style="height:60px; border:2px solid #474747; color:454545; border-radius:8px; max-width: 200px; overflow: hidden; white-space: nowrap; background-color:#E3F1FF;">
+					<div class="schedule_tiptext">
 						<!--
 							^
 							Needs a link to a value for each day, something that will link every date to a page about that date.
@@ -78,14 +90,23 @@
 									This should only show a status from green to red based on how busy other people are compared to you.
 								-->
 							</table>
-						<div class="description">
-							<h4  style="margin-left: 15px; margin-top:10px; padding:none;">Description for Events of <%= wdayValue[calendarDate.wday] + " " + calendarDate.strftime("%m-%d") %>:</h5>
-							<% @events.each do |event| %>
-									<% if event.date_of_event.to_s == calendarDate.strftime("%Y-%m-%d") %>
-										<h5 style="padding-left:25px"><%=event.time_of_event.strftime("%l:%M %p") + ": " + event.title%></p>
-									<% end %>
-							<% end %>
-						</div>
+
+							<div class="schedule_description" 
+								<% if (j < 3) && (i < 4) %>
+									id="schedule_top-left"
+								<% elsif (i >= 4) && (j <= 2) %>
+									id="schedule_bot-left"
+								<% else %>
+									id="schedule_right"
+								<% end %>
+								>
+								<h5  style="margin-left: 15px; margin-top:10px; padding:none;">Description for Events of <%= wdayValue[calendarDate.wday] + " " + calendarDate.strftime("%m-%d") %>:</h5>
+								<% @events.each do |event| %>
+										<% if event.date_of_event.to_s == calendarDate.strftime("%Y-%m-%d") %>
+											<h5 style="padding-left:25px"><%=event.time_of_event.strftime("%l:%M %p") + ": " + event.title%> </p>
+										<% end %>
+								<% end %>
+							</div>
 					</div>
 				</td>
 			<% end %>
@@ -94,9 +115,9 @@
 </table>
 
 <script type="text/javascript">
-	$(".tiptext").click(function() {
-	    $(this).children("div.description").show().delay(6000).hide("slow");
+	$(".schedule_tiptext").click(function() {
+	    $(this).children("div.schedule_description").show();
 	}).mouseleave(function() {
-	    $(this).children("div.description").hide();
+	    $(this).children("div.schedule_description").hide();
 	});
 </script>
