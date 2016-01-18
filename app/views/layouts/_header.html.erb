@@ -29,7 +29,8 @@ div.abs_right{
 
 	<div class="abs_left">
 		<ul id="menu" class="header">
-			<li><%= link_to("Home", controller: "static_pages", action:"home") %></li>
+			<li><%= link_to("Home", controller: "static_pages", action:"home") %></li><li> -- </li>
+			<li><%= link_to("Feed", controller: "user", action:"feed") %></li>
 		</ul>
 	</div>
 	<div class="abs_right header">
@@ -49,8 +50,10 @@ div.abs_right{
 			  			</table>
 		  	<% else %>
 		  			<table class="header">
-		  				<li style="font-size:14px"><%= current_user.firstN.capitalize %> </li><li> -- </li>
-		  				<li style="font-size:14px"><%= link_to("Profile", current_user) %></li><li> -- </li>
+		  				<%= link_to(current_user) do %>
+		  					<li style="font-size:14px"><%= current_user.firstN.capitalize %> </li>
+		  				<% end %>
+		  				</li><li> -- </li>
 		  				<li style="font-size:14px"><%= link_to("Log out", logout_path, method: "delete")%></li>
 		  			</table>
 		  	<% end %>

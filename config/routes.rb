@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'feed' => 'user#feed'
   get 'signup' => 'user#new'
   get 'schedule' => 'user#index'
   get 'login' => 'sessions#new'
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   #match 'user/:firstN', to: 'user#show', via: [:get, :post], :constrain => { :username => /[a-zA-Z-]+/ }
   
   resources :user
+  resources :schedule_event, only: [:create, :destroy]
 
   root 'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,8 +6,9 @@ class UserController < ApplicationController
   def index
   	@user = current_user
     if logged_in?
-      @events = @user.events
+      @events = @user.events.reorder('time_of_event ASC')
     end
+    @event = current_user.events.build if logged_in?
   end
 
   def new
@@ -43,6 +44,15 @@ class UserController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
+  end
+
+  def feed
+    @user = current_user
+    #Show events that friends created
+    if logged_in?
+      #@events = @user.events.order('created_at DESC')
+      @events = @user.events
+    end
   end
 
   private
