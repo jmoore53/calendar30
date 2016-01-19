@@ -55,14 +55,6 @@
 				<% dateArray.insert((i*5) + j, calendarDate.strftime("%m-%d-%y")) %>
 				<td style="height:60px; border:2px solid #474747; color:#353535; border-radius:8px; max-width: 200px; overflow: hidden; white-space: nowrap; background-color:#72B9FF;">
 					<div class="schedule_tiptext">
-						<!--
-							^
-							Needs a link to a value for each day, something that will link every date to a page about that date.
-							Maybe add javascript code that can just make every div bigger than the others.
-							Maybe there doesn't need to be a link to a page, just javascript making the selected day larger, showing every event.
-
-							Use Javascript to add an event for that day with people.
-						-->
 						<% if ((calendarDate.day == Time.now.day) && (calendarDate.month == Time.now.month)) %>
 							<div style="color:#72FFB9;">
 						<% else %>
@@ -103,12 +95,17 @@
 							<% else %>
 								id="schedule_right"
 							<% end %>
-							>
-							<h5  style="margin-left: 15px; margin-top:10px; padding:none;">Description for Events of <%= wdayValue[calendarDate.wday] + " " + calendarDate.strftime("%m-%d") %>:</h5>
+						>
+							<div style="margin-left: 15px; margin-top:10px; font-size:16px; padding:none;">Description for Events of <%= wdayValue[calendarDate.wday] + " " + calendarDate.strftime("%m-%d") %>:
+						</div>
 							<% @events.each do |event| %>
-									<% if event.date_of_event.to_s == calendarDate.strftime("%Y-%m-%d") %>
-										<h5 style="padding-left:25px;"><%=event.time_of_event.strftime("%l:%M %p") + ": " + event.title%> </h5>
+								<% if event.date_of_event.to_s == calendarDate.strftime("%Y-%m-%d") %>
+									<%= link_to controller: "schedule_event", action: "show", id: event.id do %>
+										<div style="padding-left:25px; font-size:12px; color:white;" class="event_information">
+											<%= event.time_of_event.strftime("%l:%M %p") + ": " + event.title%> 
+										</div>
 									<% end %>
+								<% end %>
 							<% end %>
 						</div>
 					</div>
@@ -131,14 +128,12 @@
 >
 	<% if logged_in? %>
 		<%= form_for(@event, :url => { :controller => "schedule_event", :action => "create" }) do |f| %>
-			<%= f.text_field :title, placeholder:"Name of Event", style:'width:15%; top:50%; vertical-align:middle;' %>
-			<%= f.date_field :date_of_event, style:'width:10%; valign:50%' %>
-			<%= f.time_select :time_of_event, style:'width:15%; valign:50%' %>
-			<%= f.submit "Add Event" %>
+			<div><span style="font-size:12px"><b>Time of event:</b></span><%= f.time_select :time_of_event, {ampm: true},  style:'width:8%; valign:50%' %><span style="font-size:12px"><b> Date of Event: </b></span><%= f.date_field :date_of_event, style:'width:10%; valign:50%; align:center;' %></div>
+			<div><%= f.text_field :title, placeholder:"Name of Event", style:'width:10%; top:50%; vertical-align:middle;' %> <%= f.text_field :description, placeholder:"Small Description Here", style:'width:15%; top:50%; vertical-align:middle;' %><%= f.submit "Add Event", style:'width:8%; top:50%; vertical-align:middle;' %> </div>
 		<% end %>
 	<% end %>
 	<% flash.each do |key, value| %>
-	  <%= content_tag :div, value, class: "flash #{key}" %>
+  		<%= content_tag :div, value, class: "flash #{key}" %>
 	<% end %>
 </div>
 <!--
@@ -151,4 +146,9 @@
 	}).mouseleave(function() {
 	    $(this).children("div.schedule_description").hide();
 	});
+
+	$(".schedule_tiptext").mouseleave(function() {
+		$("div.event_information").children("div.jquery_show_full_description").hide();
+	});
+	
 </script>

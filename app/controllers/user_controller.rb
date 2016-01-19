@@ -5,9 +5,7 @@ class UserController < ApplicationController
 
   def index
   	@user = current_user
-    if logged_in?
-      @events = @user.events.reorder('time_of_event ASC')
-    end
+    @events = @user.events.reorder('time_of_event ASC') if logged_in?
     @event = current_user.events.build if logged_in?
   end
 
@@ -59,7 +57,6 @@ class UserController < ApplicationController
     def user_params
       params.require(:user).permit(:username, :firstN, :lastN, :email, :password, :password_confirmation, :mobile_phone, :dob)
     end
-
 
     # Before Filters
 

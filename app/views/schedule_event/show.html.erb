@@ -1,1 +1,7 @@
-<h1 align="center">Day Goes Here</h1>
+<h1 align="center">Event</h1>
+
+<div align="center">
+	<h3><%= @event.title.capitalize + " created by: " + @user.firstN %>.</h3><h3><%= "Event was created " + @event.created_at.strftime("%b %e, %Y at %l:%M:%S %p") %></h3>
+	<h4>The event should last about  + " and " + </h4>
+	<h4>People invited to this event: </h4>
+</div>

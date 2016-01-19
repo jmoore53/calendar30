@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :events, dependent: :destroy
+  
   extend FriendlyId
   friendly_id :username
 
