@@ -4,7 +4,7 @@ class UserController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def index
-  	@user = current_user
+  	@user = current_user if logged_in?
     @events = @user.events.reorder('time_of_event ASC') if logged_in?
     @event = current_user.events.build if logged_in?
   end
@@ -42,13 +42,13 @@ class UserController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
+    @events = @user.events
   end
 
   def feed
     @user = current_user
     #Show events that friends created
     if logged_in?
-      #@events = @user.events.order('created_at DESC')
       @events = @user.events
     end
   end

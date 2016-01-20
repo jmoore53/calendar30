@@ -16,9 +16,9 @@ class ScheduleEventController < ApplicationController
 		@event = Event.find(params[:id])
 	end
 
-	def show
-    	@event = Event.find(params[:id])
-    	@user = User.find(@event.user_id)
+	def show		
+    	@event = Event.find(params[:id]) if logged_in?
+    	@user = User.find(@event.user_id) if logged_in?
     	#@user = User.find(params[:user_id])
   	end
 
@@ -27,15 +27,25 @@ class ScheduleEventController < ApplicationController
 
 		if @event.update(event_params)
 			flash[:notice] = "Your event has been updated successfully"
-			redirect_to url_for(:controller => :user, :action => :index)
+			redirect_to url_for(:controller => :schedule_event, :action => :edit)
 		else
 			flash[:error] = "There was a problem updating your event."
 			render 'edit'
 		end
 	end
 
-	def destroy
+	def delete
+    	@event = Event.find(params[:id])
+    	@event.destroy
 	end
+
+	def destroy
+	    event = Event.find(params[:id])
+	    event.destroy
+	    flash[:notice] = "Event was deleted"
+	    redirect_to(:controller =>'user', :action => 'index')
+	end
+	
 
 	private
 		def event_params

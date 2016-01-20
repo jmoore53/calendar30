@@ -1,6 +1,6 @@
 <h1 align="center">Feed</h1>
 <% if logged_in? %>
-	<% @events.each do |event| %>
-		<div><%=current_user.username + " created event " + event.title + " at " + event.created_at.strftime("%m/%d/%Y %l:%M:%S %p") %></div>
-	<% end %>
+ <!--
+	Shows a total feed of all users
+ -->
 <% end %>
