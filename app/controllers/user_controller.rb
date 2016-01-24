@@ -4,8 +4,8 @@ class UserController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def index
-  	@user = current_user if logged_in?
-    @events = @user.events.reorder('time_of_event ASC') if logged_in?
+    @user = User.find(params[:id])
+    @events = @user.events.reorder('time_of_event ASC')
     @event = current_user.events.build if logged_in?
   end
 

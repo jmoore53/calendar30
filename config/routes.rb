@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   get 'feed' => 'user#feed'
   get 'signup' => 'user#new'
-  get 'schedule' => 'user#index'
+  get 'index' => 'user#index'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
@@ -15,9 +15,12 @@ Rails.application.routes.draw do
   get 'user/:id' => 'user#show'
 
   resources :schedule_event
+  #resources :group
+  get 'group' => 'group#index'
   #match 'user/:firstN', to: 'user#show', via: [:get, :post], :constrain => { :username => /[a-zA-Z-]+/ }
   
   resources :user
+  get 'schedule/:id' => 'user#schedule'
   #resources :schedule_event, only: [:create, :edit, :update, :destroy]
 
   root 'static_pages#home'

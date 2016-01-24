@@ -19,6 +19,7 @@
 		border-radius:10px; 
 		padding:1px; 
 		background-color:#FFB871;
+		height: 10%;
 	}
 	#schedule_top-left{
 		width:48%; height:38%;
@@ -131,6 +132,8 @@
 			<div><span style="font-size:12px"><b>Time of event:</b></span><%= f.time_select :time_of_event, {ampm: true},  style:'width:8%; valign:50%' %><span style="font-size:12px"><b> Date of Event: </b></span><%= f.date_field :date_of_event, style:'width:10%; valign:50%; align:center;' %></div>
 			<div><%= f.text_field :title, placeholder:"Name of Event", style:'width:10%; top:50%; vertical-align:middle;' %> <%= f.text_field :description, placeholder:"Small Description Here", style:'width:15%; top:50%; vertical-align:middle;' %><%= f.submit "Add Event", style:'width:8%; top:50%; vertical-align:middle;' %> </div>
 		<% end %>
+	<% else %>
+		<h3>Please sign in to create an event</h3>
 	<% end %>
 	<% flash.each do |key, value| %>
   		<%= content_tag :div, value, class: "flash #{key}" %>

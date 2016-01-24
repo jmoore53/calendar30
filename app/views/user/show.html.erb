@@ -1,7 +1,11 @@
-<% if @user.id == current_user.id %>
-	<h1 align="center">Your Profile</h1>
+<% if logged_in? == true %>
+	<% if @user.id == current_user.id %>
+		<h1 align="center" style="color:#202020;">Your Profile</h1>
+	<% else %>
+		<h1 align="center" style="color:#202020;"><%= @user.username.capitalize %>'s Schedule</h1>
+	<% end %>
 <% else %>
-	<h1 align="center"><%= @user.firstN.capitalize %>'s Profile</h1>
+	<h1 align="center" style="color:#202020;"><%= @user.username.capitalize %>'s Schedule</h1>
 <% end %>
 
 
