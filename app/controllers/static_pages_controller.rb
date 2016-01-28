@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
 		# 	redirect_to controller:"user", action:"index"
 		# 	#Schedule Update
 		# end
+  		@users = User.search(params[:search])
 	end
 
 	def help

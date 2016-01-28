@@ -1,1 +1,20 @@
-<h1 align="center">Help is for Bitches</h1>
+<h1 align="center">Help</h1>
+<div style="position:relative; background-color: rgba(255, 255, 255, 0.5); left:15%; width:70%; height:30%; font-size:14px;" align="center">
+	<div style="font-size:16px;">Frequently Asked Questions</div>
+	<div style="position:relative;" align="left">
+		<div>Q1: Why isn't my post being added?</div>
+		<div>A1: Make sure all form fields are filled out. Please make sure to check thoroughly.</div>
+		<br>
+		<div>Q2: Why can't I edit my profile?</div>
+		<div>A2: Everytime you make an edit to your profile, you must re-enter your password and confirm your password. We do this for security reasons.</div>
+		<br>
+		<div>Q3: Why am I recieving an error when I try and create a profile?</div>
+		<div>A3: There should be an error message that occurs on the page when there was an issue creating your profile.</div>
+	</div>
+	<br>
+	<div style="font-size:12px; color:#3300DD; font-weight:bold;">For more help, contact 
+		<%= mail_to "help@calendar30.com" do %>
+			help@calendar30.com
+		<% end %>
+	</div>
+</div>

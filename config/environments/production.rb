@@ -76,4 +76,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # ENV['RECAPTCHA_PUBLIC_KEY'] = '6LfvhBYTAAAAAOTPs4QFVNWMpjhDTpAmouh46P0d'
+  # ENV['RECAPTCHA_PRIVATE_KEY'] = '6LfrhBYTAAAAAC1kOftlSBSH2vCmn-VcyPTIhvIj'
+
 end

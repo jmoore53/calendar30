@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'dotenv-rails', :groups => [:development, :test]
+gem "recaptcha", require: "recaptcha/rails"
 
 #Friendly id used for username instead of id
 gem 'friendly_id'

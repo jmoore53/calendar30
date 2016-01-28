@@ -52,4 +52,11 @@ class User < ActiveRecord::Base
   	def forget
   		update_attribute(:remember_digest, nil);
   	end
+
+    def self.search(search)
+      if search
+        #find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+        self.where("username like ?", "%#{search}%").limit(25)
+      end
+    end
 end
