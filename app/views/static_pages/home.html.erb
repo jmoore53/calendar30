@@ -13,7 +13,7 @@ ul#menu li {
 }
 </style>
 <div style="position:relative; background-color: rgba(255, 255, 255, 0.5); left:15%; width:70%;" align="center">
-	<h2 style="padding:-200px;"> Search </h2>
+	<h2 style="padding:-200px;"> Search</h2>
 	<%= form_tag url_for(:controller => 'static_pages', :action => 'home'), :method => 'get' do %>
 	  	<div>
 	    	<%= text_field_tag :search, params[:search] %>

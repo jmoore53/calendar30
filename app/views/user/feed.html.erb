@@ -1,5 +1,24 @@
 <h1 align="center">Feed</h1>
 <% if logged_in? %>
+	<% if @events %>
+		<% @events.each do |event| %>
+			<%= link_to controller: "schedule_event", action: "show", id: event.id do %>
+				<div align="center" style="background-color:white; border:2px solid #66B5FF; border-radius:10px; width:58%;color:black; margin-left:21%; margin-bottom:10px;">
+					<div style="">
+						<span style="font-size:18px; font-weight: bold;">
+							<%= event.title %>:
+						</span> <%= event.description %>
+					</div>
+					<div style="">
+						Event made for: <%= event.date_of_event.strftime("%B %e, %Y") + " " + event.time_of_event.strftime("%l:%M %p") %>
+					</div>
+					<div style="font-size:8px;">
+						Created at <%= event.created_at.strftime("%l:%m %p on %a %b %e, %Y") %>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	<% end %>
  <!--
 	Shows a total feed of all users
  -->

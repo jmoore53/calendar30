@@ -1,6 +1,6 @@
 class ScheduleEventController < ApplicationController
-	before_action :logged_in_user, only: [:create, :edit, :update, :destroy]
-	before_action :correct_user,   only: [:edit, :update]
+	#before_action :logged_in_user, only: [:show]
+	#before_action :correct_user, only: [:show]
 
 	def create
 		user = current_user
@@ -16,7 +16,11 @@ class ScheduleEventController < ApplicationController
 	end
 
 	def edit
+		@user = current_user
 		@event = Event.find(params[:id])
+		if (@user.id != @event.user.id)
+			redirect_to(root_url)
+		end
 	end
 
 	def show		
@@ -55,8 +59,9 @@ class ScheduleEventController < ApplicationController
 			params.require(:event).permit(:title, :description, :date_of_event, :time_of_event)
 		end
 
-    def correct_user
-      @user = current_user
-      redirect_to(root_url) unless current_user?(@user)
-    end
+    	# def correct_user
+	    #   @user = current_user
+	    #   @event = Event.find(params[:id])
+	    #   redirect_to(root_url) unless(@user.id == @event.user.id)
+	    # end
 end
