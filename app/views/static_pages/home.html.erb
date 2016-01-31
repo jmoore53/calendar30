@@ -1,6 +1,5 @@
 <h1 align="center">Calendar30 Home</h1>
 
-
 <style>
 ul#menu {
 	text-align: center;
@@ -13,7 +12,7 @@ ul#menu li {
 }
 </style>
 <div style="position:relative; background-color: rgba(255, 255, 255, 0.5); left:15%; width:70%;" align="center">
-	<h2 style="padding:-200px;"> Search</h2>
+	<h2 style="padding:-200px;"> Search Users</h2>
 	<%= form_tag url_for(:controller => 'static_pages', :action => 'home'), :method => 'get' do %>
 	  	<div>
 	    	<%= text_field_tag :search, params[:search] %>
@@ -21,11 +20,12 @@ ul#menu li {
 	  	</div>
 	  	<div style="padding:5px"></div>
 	  	<% if @users %>
-			<% @users.each do |user| %>
-				<%= link_to controller: "user", action: "show", id: user.id do %>
-					<div style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;"><%= user.username %></div>
-					<div style="padding:5px"></div>
-				<% end %>
+			<% @users.each do |user| %>			
+				<div style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
+				<%= link_to controller: "user", action: "show", id: user.id do %><%= user.username%><% end %> |
+				<%= link_to "Schedule", controller: "user", action: "index", id: user.id %>
+				</div>
+				<div style="padding:5px"></div>
 			<% end %>
 		<% end %>
 	<% end %>
