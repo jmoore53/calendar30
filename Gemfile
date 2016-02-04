@@ -28,7 +28,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'dotenv-rails', :groups => [:development, :test]
+gem "recaptcha", require: "recaptcha/rails"
+
+#Friendly id used for username instead of id
 gem 'friendly_id'
+
+#Time validator
+gem 'validates_timeliness', '~> 4.0'
+
+# Use for windows development
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

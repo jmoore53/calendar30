@@ -1,4 +1,16 @@
-<h1 align="center"><%= @user.firstN.capitalize %>'s Profile</h1>
+<% if logged_in? == true %>
+	<% if @user.id == current_user.id %>
+		<h1 align="center" style="color:#202020;">Your Profile</h1>
+	<% else %>
+		<h1 align="center" style="color:#202020;"><%= @user.username.capitalize %>'s Schedule</h1>
+	<% end %>
+<% else %>
+	<h1 align="center" style="color:#202020;"><%= @user.username.capitalize %>'s Schedule</h1>
+<% end %>
+
+<div align="center">
+	<%= render 'layouts/stats' %><%= render 'layouts/follow_form' %>
+</div>
 
 
 <% flash.discard(:notice) %>
@@ -9,6 +21,25 @@
 
 
 <ul id="menu">
-	<li><%= link_to("Schedule", controller: "user", action:"index") %></li><li> -- </li>
+	<li><%= link_to("Schedule", controller: "user", action:"index", :id => @user.id) %></li><li> -- </li>
 	<li><%= link_to("Edit Profile", controller: "user", action:"edit") %></li>
 </ul>
+<br>
+
+<% @events.each do |event| %>
+	<%= link_to controller: "schedule_event", action: "show", id: event.id do %>
+		<div style="background-color:white; border:2px solid #66B5FF; border-radius:10px; width:58%;color:black; margin-left:21%; margin-bottom:10px;">
+			<div style="">
+				<span style="font-size:18px; font-weight: bold;">
+					<%= event.title %>:
+				</span> <%= event.description %>
+			</div>
+			<div style="">
+				Event made for: <%= event.date_of_event.strftime("%B %e, %Y") + " " + event.time_of_event.strftime("%l:%M %p") %>
+			</div>
+			<div style="font-size:8px;">
+				Created at <%= event.created_at.strftime("%l:%m %p on %a %b %e, %Y") %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

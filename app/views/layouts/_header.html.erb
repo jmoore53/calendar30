@@ -13,14 +13,28 @@ div.abs_right{
 	top: 10px;
 	right: 15px;
 }
+.header a:link{
+	color:white;
+}
+.header a:visited{
+	color:#767676;
+}
+.header a:hover{
+	color:red;
+}
+.header a:active{
+	color:white;
+}
 </style>
 
 	<div class="abs_left">
-		<ul id="menu">
-			<li><%= link_to("Home", controller: "static_pages", action:"home") %></li>
+		<ul id="menu" class="header">
+			<li><%= link_to("Home", controller: "static_pages", action:"home") %></li><li> -- </li>
+			<li><%= link_to("Feed", controller: "user", action:"feed") %></li><li> -- </li>
+			<li><%= link_to("Groups", controller: "group", action:"index")%> <!-- , controller: "group", action:"index"-->
 		</ul>
 	</div>
-	<div class="abs_right">
+	<div class="abs_right header">
 		<ul id="menu">
 			<% if logged_in? == false %>
 				<%= form_for(:session, url: login_path) do |f| %>
@@ -36,9 +50,12 @@ div.abs_right{
 			  				<li style="font-size:14px"> <%= link_to("Sign up", controller: "user", action: "new")%></li>
 			  			</table>
 		  	<% else %>
-		  			<table>
-		  				<li style="font-size:14px"><%= current_user.firstN.capitalize %> </li><li> -- </li>
-		  				<li style="font-size:14px"><%= link_to("Profile", current_user) %></li><li> -- </li>
+		  			<table class="header">
+		  				<li style="font-size:14px"><%= link_to("Schedule", controller:"user", action:"index", id: @current_user.id) %></li><li> -- </li>
+		  				<%= link_to(current_user) do %>
+		  					<li style="font-size:14px"><%= current_user.firstN.capitalize %> </li>
+		  				<% end %>
+		  				</li><li> -- </li>
 		  				<li style="font-size:14px"><%= link_to("Log out", logout_path, method: "delete")%></li>
 		  			</table>
 		  	<% end %>

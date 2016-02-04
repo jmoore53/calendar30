@@ -1,0 +1,157 @@
+<!-- 
+	HTML Schedule Here.
+-->
+<style>
+	.schedule_tiptext {
+	}
+	.schedule_description {
+		display:none;
+		position:absolute;
+		border: 2px solid #454545; 
+		color: white; 
+		background-color: #555AF0; 
+		z-index: 1;
+		overflow: auto;
+		border-radius: 5px;
+	}
+	.schedule_create_event{
+		border: 2px solid black;
+		border-radius:10px; 
+		padding:1px; 
+		background-color:#FFB871;
+		height: 10%;
+	}
+	#schedule_top-left{
+		width:48%; height:38%;
+		top:18%; left:8%; 
+	}
+	#schedule_bot-left{
+		width:48%; height:38%;
+		bottom:20%; left:8%;   
+	}
+	#schedule_right{ 
+		width:24%; height:60%; 
+		right:8%; top:20%;"
+	}
+</style>
+<!--
+	Need to be able to create an event with people.
+-->
+
+<table width="100%" style="background-color:#BFE0FF; table-layout:fixed">
+	<colgroup>
+		<col width="20%" />
+		<col width="20%" />
+		<col width="20%" />
+		<col width="20%" />
+		<col width="20%" />
+	</colgroup>
+	<% dateArray = Array.new %>
+	<% for i in 0..5 %>
+		<tr>
+			<% for j in 0..4 %>
+				<% calendarDate = Time.now + ((i*5) + j).day.to_i %>
+				<% wdayValue = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
+				<% monthValue = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"] %>
+				<% dateArray.insert((i*5) + j, calendarDate.strftime("%m-%d-%y")) %>
+				<td style="height:60px; border:2px solid #474747; color:#353535; border-radius:8px; max-width: 200px; overflow: hidden; white-space: nowrap; background-color:#72B9FF;">
+					<div class="schedule_tiptext">
+						<% if ((calendarDate.day == Time.now.day) && (calendarDate.month == Time.now.month)) %>
+							<div style="color:#72FFB9;">
+						<% else %>
+							<div>
+						<% end %>
+								<%= wdayValue[calendarDate.wday] %>, <%= monthValue[calendarDate.month-1] %> <%= calendarDate.day %>:
+							</div>
+						<table>
+							<tr><td>Events:</td>
+								<td>
+									<% @feed_items.each do |event| %>
+										<% if event.date_of_event.to_s == calendarDate.strftime("%Y-%m-%d") %>
+											<b><%=event.title%></b>
+										<% end %>
+									<% end %>
+								</td>
+							<!--
+								^
+								Show the events for the day by calling a request to the database for events on the day.
+								The events should be added based on the "calendarDate" variable.
+								something like... 
+
+								calendarValue.getEventsForToday()
+							-->
+							</tr>
+							<tr><td>Availibility</td></tr>
+							<!--
+								^
+								This should only show a status from green to red based on how busy other people are compared to you.
+							-->
+						</table>
+
+						<div class="schedule_description" 
+							<% if (j < 3) && (i < 4) %>
+								id="schedule_top-left"
+							<% elsif (i >= 4) && (j <= 2) %>
+								id="schedule_bot-left"
+							<% else %>
+								id="schedule_right"
+							<% end %>
+						>
+							<div style="margin-left: 15px; margin-top:10px; font-size:16px; padding:none;">Description for Events of <%= wdayValue[calendarDate.wday] + " " + calendarDate.strftime("%m-%d") %>:
+						</div>
+							<% @feed_items.each do |event| %>
+								<% if event.date_of_event.to_s == calendarDate.strftime("%Y-%m-%d") %>
+									<%= link_to controller: "schedule_event", action: "show", id: event.id do %>
+										<div style="padding-left:25px; font-size:12px; color:white;" class="event_information">
+											<%= event.time_of_event.strftime("%l:%M %p") + ": " + event.title + " created by: " + event.user.username %> 
+										</div>
+									<% end %>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
+</table>
+
+<br>
+<!--
+	Create events down here. \/
+-->
+<div align="center" class="schedule_create_event"
+	<% if flash[:notice] %>
+		style="background-color:#B8FF71;"
+	<% elsif flash[:error] %>
+		style="background-color:#FF7172;"
+	<% end %>
+>
+	<% if logged_in? %>
+		<%= form_for(@event, :url => { :controller => "schedule_event", :action => "create" }) do |f| %>
+			<div><span style="font-size:12px"><b>Time of event:</b></span><%= f.time_select :time_of_event, {ampm: true},  style:'width:8%; valign:50%' %><span style="font-size:12px"><b> Date of Event: </b></span><%= f.date_field :date_of_event, style:'width:10%; valign:50%; align:center;' %></div>
+			<div><%= f.text_field :title, placeholder:"Name of Event", style:'width:10%; top:50%; vertical-align:middle;' %> <%= f.text_field :description, placeholder:"Small Description Here", style:'width:15%; top:50%; vertical-align:middle;' %><%= f.submit "Add Event", style:'width:8%; top:50%; vertical-align:middle;' %> </div>
+		<% end %>
+	<% else %>
+		<h3>Please sign in to create an event</h3>
+	<% end %>
+	<% flash.each do |key, value| %>
+  		<%= content_tag :div, value, class: "flash #{key}" %>
+	<% end %>
+</div>
+<!--
+	End of creating an event
+-->
+
+<script type="text/javascript">
+	$(".schedule_tiptext").click(function() {
+	    $(this).children("div.schedule_description").show();
+	}).mouseleave(function() {
+	    $(this).children("div.schedule_description").hide();
+	});
+
+	$(".schedule_tiptext").mouseleave(function() {
+		$("div.event_information").children("div.jquery_show_full_description").hide();
+	});
+	
+</script>

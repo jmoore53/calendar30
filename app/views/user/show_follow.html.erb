@@ -1,0 +1,4 @@
+<% provide(:title, @title) %>
+<h1 align="center"><%= @user.username %></h1>
+<span><%= link_to "view my profile", @user %></span>
+<span><b>Events:</b> <%= @user.events.count %></span>

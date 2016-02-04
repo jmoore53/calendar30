@@ -1,6 +1,5 @@
 <h1 align="center">Calendar30 Home</h1>
 
-
 <style>
 ul#menu {
 	text-align: center;
@@ -12,7 +11,26 @@ ul#menu li {
     display:inline;
 }
 </style>
-
-<ul id="menu" align="center">
-	<li><%= link_to("Schedule", controller: "user", action: "index")%></li>
-</ul>
+<div style="position:relative; background-color: rgba(255, 255, 255, 0.5); left:15%; width:70%;" align="center">
+	<h2 style="padding:-200px;"> Search Users</h2>
+	<%= form_tag url_for(:controller => 'static_pages', :action => 'home'), :method => 'get' do %>
+	  	<div>
+	    	<%= text_field_tag :search, params[:search] %>
+	    	<%= submit_tag "Search", :name => nil %>
+	  	</div>
+	  	<div style="padding:5px"></div>
+	  	<% if @users %>
+			<% @users.each do |user| %>			
+				<div style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
+				<%= link_to controller: "user", action: "show", id: user.id do %><%= user.username%><% end %> |
+				<%= link_to "Schedule", controller: "user", action: "index", id: user.id %>
+				</div>
+				<div style="padding:5px"></div>
+			<% end %>
+		<% end %>
+	<% end %>
+	<div style="font-size:10px; font-weight:bold;">
+		Showing first 10 search results.
+	</div>
+	<br>
+</div>

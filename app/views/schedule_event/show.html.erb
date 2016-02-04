@@ -1,0 +1,14 @@
+<h1 align="center">Event</h1>
+<% if logged_in? %>
+	<div align="center">
+		<h3><%= @event.title.capitalize + " created by: " + @user.firstN %>.</h3><h3><%= "Event was created " + @event.created_at.strftime("%b %e, %Y at %l:%M:%S %p") %></h3>
+		<h4>The event should last about  + " and " + </h4>
+		<h4>People invited to this event: </h4>
+		<% if current_user.id == @event.user.id %>
+			<%= link_to("Edit Event", controller: "schedule_event", action:"edit") %>|
+      		<%= link_to "Delete", schedule_event_path(@event), :confirm => "Are you sure?", :method => :delete %>
+      	<% end %>
+	</div>
+<% else %>
+	<div align="center">Please <%= link_to("Login", controller: "sessions", action: "new") %> to see event</div>
+<% end %>

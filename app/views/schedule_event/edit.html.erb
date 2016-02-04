@@ -1,0 +1,17 @@
+<h1 align="center">Edit Event</h1>
+<li align="center" style="text-align: center; color:red; list-style-type: none;"><% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: 'name' %>
+<% end %></li>
+
+	<ul style="list-style-type: none;">
+	    <%= form_for @event, :url => {:action => "update"} do |f| %>
+
+	    	<li><%= f.label :title, "Title: " %>
+	      <%= f.text_field :title %></li>
+
+	      	<li><%= f.label :description, "Description: " %>
+	      <%= f.text_field :description, style: 'width: 20%; height:10%;' %></li>
+
+	      	<li><%= f.submit "Save changes" %></li>
+	    <% end %>
+	</ul>
