@@ -1,41 +1,3 @@
-2016-02-05T03:20:40.512372+00:00 heroku[router]: at=info method=GET path="/group" host=lit-oasis-83164.herokuapp.com request_id=21b55b43-0660-42c4-9915-c6f96d16f64b fwd="140.254.77.212" dyno=web.1 connect=1ms service=126ms status=200 bytes=3884
-2016-02-05T03:20:45.742183+00:00 heroku[router]: at=info method=GET path="/" host=lit-oasis-83164.herokuapp.com request_id=84c0b980-30ed-4b14-acca-fcda013c50c8 fwd="140.254.77.212" dyno=web.1 connect=2ms service=26ms status=200 bytes=4545
-2016-02-05T03:20:47.382719+00:00 heroku[router]: at=info method=POST path="/login" host=lit-oasis-83164.herokuapp.com request_id=582f440e-41d3-4e79-8dc7-7df6ac5effe9 fwd="140.254.77.212" dyno=web.1 connect=1ms service=9ms status=500 bytes=1669
-2016-02-05T03:20:49.200927+00:00 heroku[router]: at=info method=GET path="/signup" host=lit-oasis-83164.herokuapp.com request_id=cdfbf0fa-1421-4840-b52e-de40393f20b9 fwd="140.254.77.212" dyno=web.1 connect=15ms service=10ms status=500 bytes=1669
-2016-02-05T03:20:49.239865+00:00 heroku[router]: at=info method=GET path="/signup" host=lit-oasis-83164.herokuapp.com request_id=ad4c54c8-2a5c-419c-ab48-9078a89ae16b fwd="140.254.77.212" dyno=web.1 connect=1ms service=7ms status=500 bytes=1669
-2016-02-05T03:21:13.427445+00:00 heroku[router]: at=info method=GET path="/help" host=lit-oasis-83164.herokuapp.com request_id=e8eb88ec-4a00-4c2d-9a91-ec73a2ac1c09 fwd="140.254.77.212" dyno=web.1 connect=1ms service=18ms status=200 bytes=4837
-2016-02-05T03:23:15.980824+00:00 heroku[router]: at=info method=GET path="/group" host=lit-oasis-83164.herokuapp.com request_id=d89dd5c3-51d8-4353-aad8-9502d08b359d fwd="140.254.77.212" dyno=web.1 connect=0ms service=15ms status=200 bytes=3884
-2016-02-05T03:23:16.015564+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=lit-oasis-83164.herokuapp.com request_id=3a8a7adf-6d6f-45d1-b4f8-7d9bee161805 fwd="140.254.77.212" dyno=web.1 connect=0ms service=1ms status=304 bytes=48
-2016-02-05T03:23:17.080832+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=c1042889-d0d1-4239-825e-2cbe36c6bf94 fwd="140.254.77.212" dyno=web.1 connect=0ms service=8ms status=500 bytes=1669
-2016-02-05T03:23:17.119533+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=18e18122-2ed5-497d-8ca3-b145ad32228f fwd="140.254.77.212" dyno=web.1 connect=0ms service=9ms status=500 bytes=1669
-2016-02-05T03:23:20.212991+00:00 heroku[router]: at=info method=GET path="/" host=lit-oasis-83164.herokuapp.com request_id=1bd2c93a-05bd-43fa-973a-77e73d6f4f67 fwd="140.254.77.212" dyno=web.1 connect=0ms service=19ms status=200 bytes=4545
-2016-02-05T03:23:36.598154+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=59e3922a-6704-4a7a-ba47-c371a9683d22 fwd="140.254.77.212" dyno=web.1 connect=0ms service=11ms status=500 bytes=1669
-2016-02-05T03:23:36.644553+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=df32abd1-5ad6-4e27-9533-814fb8571f1a fwd="140.254.77.212" dyno=web.1 connect=1ms service=15ms status=500 bytes=1669
-2016-02-05T03:24:02.923693+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by jmoore6786wjm@hotmail.com
-2016-02-05T03:24:05.846887+00:00 heroku[run.8890]: Starting process with command `bundle exec rake db:migrate`
-2016-02-05T03:24:05.792552+00:00 heroku[run.8890]: Awaiting client
-2016-02-05T03:24:06.325944+00:00 heroku[run.8890]: State changed from starting to up
-2016-02-05T03:24:12.070809+00:00 heroku[run.8890]: State changed from up to complete
-2016-02-05T03:24:12.064647+00:00 heroku[run.8890]: Process exited with status 0
-2016-02-05T03:24:14.467831+00:00 heroku[router]: at=info method=GET path="/" host=lit-oasis-83164.herokuapp.com request_id=7b5e500b-0e96-43e5-9f09-9951e3491025 fwd="140.254.77.212" dyno=web.1 connect=1ms service=10ms status=200 bytes=4545
-2016-02-05T03:24:14.517658+00:00 heroku[router]: at=info method=GET path="/assets/application-620a575c4bb496b9d8ab08b14f600647cbcecad8e81d69fdaa6eda82db7da111.css" host=lit-oasis-83164.herokuapp.com request_id=9df8ca00-8630-4f55-a22b-188942debaf2 fwd="140.254.77.212" dyno=web.1 connect=2ms service=1ms status=304 bytes=48
-2016-02-05T03:24:14.637673+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=lit-oasis-83164.herokuapp.com request_id=ffab4440-9caf-4a94-944c-5e65fcdb9106 fwd="140.254.77.212" dyno=web.1 connect=1ms service=2ms status=200 bytes=143
-2016-02-05T03:24:14.510787+00:00 heroku[router]: at=info method=GET path="/assets/application-2a454ef5781d38b8f702e13372d58155922c2285d3845beb1dacfa86020bd38a.js" host=lit-oasis-83164.herokuapp.com request_id=e6079627-8cd6-4a3c-becd-f7bd355deeee fwd="140.254.77.212" dyno=web.1 connect=0ms service=2ms status=304 bytes=48
-2016-02-05T03:24:15.437956+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=5030a659-fe6a-489f-9be1-d43be0a25e4c fwd="140.254.77.212" dyno=web.1 connect=0ms service=5ms status=500 bytes=1669
-2016-02-05T03:24:15.489374+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=6891ec97-528f-4c1d-b7cd-d420e611c2a7 fwd="140.254.77.212" dyno=web.1 connect=0ms service=5ms status=500 bytes=1669
-2016-02-05T03:24:34.735782+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by jmoore6786wjm@hotmail.com
-2016-02-05T03:24:36.785571+00:00 heroku[run.1713]: Awaiting client
-2016-02-05T03:24:36.807928+00:00 heroku[run.1713]: Starting process with command `bundle exec rake db:migrate`
-2016-02-05T03:24:40.289092+00:00 heroku[run.1713]: State changed from up to complete
-2016-02-05T03:24:40.249283+00:00 heroku[run.1713]: Process exited with status 0
-2016-02-05T03:24:44.415479+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=00d891bd-c157-4b1a-a943-75b8ae43e71c fwd="140.254.77.212" dyno=web.1 connect=1ms service=57ms status=500 bytes=1669
-2016-02-05T03:24:44.555867+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=9ebbaa2b-a856-45ae-bd42-1e543b4a70a1 fwd="140.254.77.212" dyno=web.1 connect=0ms service=110ms status=500 bytes=1669
-2016-02-05T03:25:05.340260+00:00 heroku[web.1]: State changed from up to starting
-2016-02-05T03:25:07.114440+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
-2016-02-05T03:25:09.121418+00:00 app[web.1]: [3] * Environment: production
-2016-02-05T03:25:09.121420+00:00 app[web.1]: [3] * Preloading application
-2016-02-05T03:25:09.121393+00:00 app[web.1]: [3] Puma starting in cluster mode...
-2016-02-05T03:25:09.121416+00:00 app[web.1]: [3] * Version 2.16.0 (ruby 2.2.4-p230), codename: Midwinter Nights Trance
 2016-02-05T03:25:09.121417+00:00 app[web.1]: [3] * Min threads: 5, max threads: 5
 2016-02-05T03:25:09.121419+00:00 app[web.1]: [3] * Process workers: 2
 2016-02-05T03:25:09.356245+00:00 heroku[web.1]: Stopping all processes with SIGTERM
@@ -99,3 +61,41 @@
 2016-02-05T03:27:00.623048+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=fbee9994-d9a5-41b1-872b-585f07a15792 fwd="140.254.77.212" dyno=web.1 connect=1ms service=4ms status=500 bytes=1669
 2016-02-05T03:27:45.042278+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=1c0aa620-9b0f-4a84-ad3a-e9cd27ae2983 fwd="140.254.77.212" dyno=web.1 connect=1ms service=4ms status=500 bytes=1669
 2016-02-05T03:27:44.989248+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=2ae49542-a392-4987-bb07-97222bf0e6b4 fwd="140.254.77.212" dyno=web.1 connect=1ms service=4ms status=500 bytes=1669
+2016-02-05T03:30:35.462655+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=43540d89-9e9f-4279-b503-0ccb722071e0 fwd="140.254.77.212" dyno=web.1 connect=0ms service=52ms status=500 bytes=1669
+2016-02-05T03:30:35.515155+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=lit-oasis-83164.herokuapp.com request_id=ca2e0011-8040-482c-91d8-7786b5c8c4f0 fwd="140.254.77.212" dyno=web.1 connect=0ms service=1ms status=304 bytes=48
+2016-02-05T03:34:01.135841+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=lit-oasis-83164.herokuapp.com request_id=98619c60-15f6-435a-812f-4b30a9c27475 fwd="140.254.77.212" dyno=web.1 connect=1ms service=2ms status=304 bytes=48
+2016-02-05T03:34:02.404014+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=8852311c-76e8-45b8-a601-3c0b4c67d6ba fwd="140.254.77.212" dyno=web.1 connect=1ms service=14ms status=500 bytes=1669
+2016-02-05T03:34:02.458644+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=fc3b7881-13af-402f-bce8-8c6887df2110 fwd="140.254.77.212" dyno=web.1 connect=1ms service=21ms status=500 bytes=1669
+2016-02-05T03:34:05.738182+00:00 heroku[api]: Deploy a0c444c by jmoore6786wjm@hotmail.com
+2016-02-05T03:34:05.738182+00:00 heroku[api]: Release v8 created by jmoore6786wjm@hotmail.com
+2016-02-05T03:34:05.865519+00:00 heroku[slug-compiler]: Slug compilation started
+2016-02-05T03:34:05.865528+00:00 heroku[slug-compiler]: Slug compilation finished
+2016-02-05T03:34:05.867424+00:00 heroku[web.1]: State changed from up to starting
+2016-02-05T03:34:08.038226+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2016-02-05T03:34:09.603496+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2016-02-05T03:34:10.285163+00:00 app[web.1]: [3] Puma starting in cluster mode...
+2016-02-05T03:34:10.285192+00:00 app[web.1]: [3] * Version 2.16.0 (ruby 2.2.4-p230), codename: Midwinter Nights Trance
+2016-02-05T03:34:10.285195+00:00 app[web.1]: [3] * Environment: production
+2016-02-05T03:34:10.285193+00:00 app[web.1]: [3] * Min threads: 5, max threads: 5
+2016-02-05T03:34:10.285196+00:00 app[web.1]: [3] * Process workers: 2
+2016-02-05T03:34:10.285196+00:00 app[web.1]: [3] * Preloading application
+2016-02-05T03:34:10.509370+00:00 app[web.1]: [3] - Gracefully shutting down workers...
+2016-02-05T03:34:10.642380+00:00 app[web.1]: [3] === puma shutdown: 2016-02-05 03:34:10 +0000 ===
+2016-02-05T03:34:10.642417+00:00 app[web.1]: [3] - Goodbye!
+2016-02-05T03:34:11.534067+00:00 heroku[web.1]: Process exited with status 0
+2016-02-05T03:34:11.621329+00:00 app[web.1]: [3] * Listening on tcp://0.0.0.0:21233
+2016-02-05T03:34:11.621469+00:00 app[web.1]: [3] Use Ctrl-C to stop
+2016-02-05T03:34:11.625258+00:00 app[web.1]: [3] - Worker 0 (pid: 6) booted, phase: 0
+2016-02-05T03:34:11.626821+00:00 app[web.1]: [3] - Worker 1 (pid: 11) booted, phase: 0
+2016-02-05T03:34:12.127212+00:00 heroku[web.1]: State changed from starting to up
+2016-02-05T03:34:12.920487+00:00 heroku[router]: sock=client at=warning code=H27 desc="Client Request Interrupted" method=GET path="/" host=lit-oasis-83164.herokuapp.com request_id=493f316d-61dc-435e-ab21-1a18d4caa211 fwd="140.254.77.212" dyno=web.1 connect=1ms service=69ms status=499 bytes=4739
+2016-02-05T03:34:13.775456+00:00 heroku[router]: at=info method=GET path="/" host=lit-oasis-83164.herokuapp.com request_id=cb671352-52d7-4b32-a3f5-3bbf63aeb011 fwd="140.254.77.212" dyno=web.1 connect=1ms service=9ms status=200 bytes=4739
+2016-02-05T03:34:14.000274+00:00 heroku[router]: at=info method=GET path="/assets/application-620a575c4bb496b9d8ab08b14f600647cbcecad8e81d69fdaa6eda82db7da111.css" host=lit-oasis-83164.herokuapp.com request_id=f9883aae-ec39-4681-85fe-63f7045fa136 fwd="140.254.77.212" dyno=web.1 connect=1ms service=2ms status=304 bytes=48
+2016-02-05T03:34:14.023297+00:00 heroku[router]: at=info method=GET path="/assets/application-2a454ef5781d38b8f702e13372d58155922c2285d3845beb1dacfa86020bd38a.js" host=lit-oasis-83164.herokuapp.com request_id=7edc0d26-9732-4751-96b2-c06eb137519a fwd="140.254.77.212" dyno=web.1 connect=1ms service=2ms status=304 bytes=48
+2016-02-05T03:34:14.128270+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=lit-oasis-83164.herokuapp.com request_id=5191138d-5677-47cd-bd6c-5bd8436c78c0 fwd="140.254.77.212" dyno=web.1 connect=3ms service=2ms status=200 bytes=143
+2016-02-05T03:34:15.002642+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=fd64a523-2cc0-485c-9164-98b3065a6e62 fwd="140.254.77.212" dyno=web.1 connect=4ms service=63ms status=500 bytes=1669
+2016-02-05T03:34:15.041704+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=cfb02e85-89dd-41bf-b37a-d14e5f9cb2ea fwd="140.254.77.212" dyno=web.1 connect=1ms service=11ms status=500 bytes=1669
+2016-02-05T03:34:16.879584+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=lit-oasis-83164.herokuapp.com request_id=755d68c3-0dc4-4205-9ca2-5ef843193d98 fwd="140.254.77.212" dyno=web.1 connect=3ms service=2ms status=304 bytes=48
+2016-02-05T03:34:24.971752+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=2308e38c-c96a-4555-8981-cd18703a8080 fwd="140.254.77.212" dyno=web.1 connect=1ms service=6ms status=500 bytes=1669
+2016-02-05T03:34:25.004120+00:00 heroku[router]: at=info method=GET path="/feed" host=lit-oasis-83164.herokuapp.com request_id=2dcd6354-c58d-4dd3-bf33-c5cf12461c40 fwd="140.254.77.212" dyno=web.1 connect=1ms service=4ms status=500 bytes=1669
+2016-02-05T03:34:25.064040+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=lit-oasis-83164.herokuapp.com request_id=3d9a7354-c5c3-4456-bb90-068d5c3dafa2 fwd="140.254.77.212" dyno=web.1 connect=15ms service=2ms status=304 bytes=48
