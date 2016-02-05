@@ -48,7 +48,8 @@ class UserController < ApplicationController
   end
 
   def feed
-    @feed_items = current_user.feed
+    #@feed_items = current_user.feed
+    @feed_items = current_user.events
   end
 
   def following
