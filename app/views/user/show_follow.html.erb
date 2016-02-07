@@ -1,4 +1,14 @@
 <% provide(:title, @title) %>
 <h1 align="center"><%= @user.username %></h1>
-<span><%= link_to "view my profile", @user %></span>
-<span><b>Events:</b> <%= @user.events.count %></span>
+<div align="center">
+	<span><%= link_to "View my profile", @user %></span>
+	<span><b>Events I've Created:</b> <%= @user.events.count %></span>
+</div>
+
+<% if @users.any? %>
+    <div align="center" style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
+      <% @users.each do |user| %>
+        <%= link_to user %>
+      <% end %>
+    </div>
+<% end %>
