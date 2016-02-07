@@ -6,9 +6,11 @@
 </div>
 
 <% if @users.any? %>
-    <div align="center" style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
-      <% @users.each do |user| %>
-        <%= user.username %><%= link_to (user) %>
-      <% end %>
-    </div>
+    <% @users.each do |user| %>
+        <%= link_to controller: "user", action: "show", id: user.id do %>
+	        <div align="center" style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
+	        	<%= user.username %> <% user.followers.count %> followers | <% user.following.count %> following
+	        </div>
+        <% end %>
+    <% end %>
 <% end %>
