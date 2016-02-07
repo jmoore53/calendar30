@@ -7,10 +7,10 @@
 <br>
 <% if @users.any? %>
     <% @users.each do |user| %>
-        <%= link_to controller: "user", action: "show", id: user.id do %>
-	        <div align="center" style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
-	        	<%= user.username %> <%= user.followers.count %> followers | <%= user.following.count %> following
-	        </div>
-        <% end %>
+	    <div align="center" style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
+	        <%= link_to controller: "user", action: "show", id: user.id do %>
+		        <%= user.username %> <%= user.followers.count %> followers | <%= user.following.count %> following
+	        <% end %>
+	    </div>
     <% end %>
 <% end %>
