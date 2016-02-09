@@ -11,7 +11,7 @@ class ScheduleEventController < ApplicationController
 			redirect_to(:controller =>'user', :action => 'show', id: user.id)
 		else
 			flash[:error] = "There was a problem creating your event. Please check everything is correct."
-			render 'user/index'
+			render 'edit'
 		end
 	end
 
