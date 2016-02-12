@@ -24,6 +24,7 @@
 #   <<: *default
 #   database: db/production.sqlite3
 
+
 development:
   adapter: postgresql
   database: my_database_development

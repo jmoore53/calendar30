@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160204022055) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -24,9 +27,15 @@ ActiveRecord::Schema.define(version: 20160204022055) do
     t.string   "description"
   end
 
-  add_index "events", ["user_id"], name: "index_events_on_user_id"
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lunch_times", force: :cascade do |t|
+    t.datetime "lunch_dat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,9 +47,9 @@ ActiveRecord::Schema.define(version: 20160204022055) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "firstN"
@@ -57,6 +66,6 @@ ActiveRecord::Schema.define(version: 20160204022055) do
     t.string   "slug"
   end
 
-  add_index "users", ["slug"], name: "index_users_on_slug"
+  add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
 
 end
