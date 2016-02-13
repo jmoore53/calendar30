@@ -1,10 +1,10 @@
 <h1 align="center">About</h1>
-
 <div style="position:relative; background-color: rgba(255, 255, 255, 0.5); left:15%; width:70%; height:30%; font-size:14px;" align="center">
 	<div style="position:relative;" align="left">
 		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;This website was created for people who do not want to hastle their friends what they are doing every day of the week. It is a website that was created to connect people outside of their computer. This website gives users the ability to view each others schedules in order to see what their friends are doing. This website was strictly based on friends seeing what other friends are doing, and should not be used for any other purposes.
 	</div>
 	<br>
-	<div>Service Agreement:</div>
-	<%= render 'layouts/statement_of_rights_and_responsibilities' %>
+		<%= link_to controller: "static_pages", action: "serviceAgreement" do %>
+			<div style="color:black;">Link to Service Agreement</div>
+		<% end %>
 </div>

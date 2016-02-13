@@ -13,14 +13,15 @@ div.abs_right{
 	top: 10px;
 	right: 15px;
 }
-.header a:link{
+.header a:link, a:visited{
 	color:white;
-}
-.header a:visited{
-	color:#767676;
+	background-color: #0600AB;
+	padding-left: .5em;
+	padding-right: .5em;
+	border-radius: 5px;
 }
 .header a:hover{
-	color:red;
+	color:#75FFA8;
 }
 .header a:active{
 	color:white;
@@ -29,8 +30,8 @@ div.abs_right{
 
 	<div class="abs_left">
 		<ul id="menu" class="header">
-			<li><%= link_to("Home", controller: "static_pages", action:"home") %></li><li> -- </li>
-			<li><%= link_to("Feed", controller: "user", action:"feed") %></li><li> -- </li>
+			<li><%= link_to("Home", controller: "static_pages", action:"home") %></li><li> </li>
+			<li><%= link_to("Feed", controller: "user", action:"feed") %></li><li> </li>
 			<li><%= link_to("Groups", controller: "group", action:"index")%> <!-- , controller: "group", action:"index"-->
 		</ul>
 	</div>
@@ -51,11 +52,11 @@ div.abs_right{
 			  			</table>
 		  	<% else %>
 		  			<table class="header">
-		  				<li style="font-size:14px"><%= link_to("Schedule", controller:"user", action:"index", id: @current_user.id) %></li><li> -- </li>
+		  				<li style="font-size:14px"><%= link_to("Schedule", controller:"user", action:"index", id: @current_user.id) %></li><li> </li>
 		  				<%= link_to(current_user) do %>
 		  					<li style="font-size:14px"><%= current_user.firstN.capitalize %> </li>
 		  				<% end %>
-		  				</li><li> -- </li>
+		  				</li><li> </li>
 		  				<li style="font-size:14px"><%= link_to("Log out", logout_path, method: "delete")%></li>
 		  			</table>
 		  	<% end %>

@@ -10,6 +10,9 @@ ul#menu {
 ul#menu li {
     display:inline;
 }
+.home a:link{
+	color:black;
+}
 </style>
 <div style="position:relative; background-color: rgba(255, 255, 255, 0.5); left:15%; width:70%;" align="center">
 	<h2 style="padding:-200px;"> Search Users</h2>
@@ -22,8 +25,8 @@ ul#menu li {
 	  	<% if @users %>
 			<% @users.each do |user| %>			
 				<div style="padding:5px; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
-				<%= link_to controller: "user", action: "show", id: user.id do %><%= user.username%><% end %> |
-				<%= link_to "Schedule", controller: "user", action: "index", id: user.id %>
+				<%= link_to controller: "user", action: "show", id: user.id, class:"home" do %><%= user.username%><% end %> |
+				<%= link_to "Schedule", controller: "user", action: "index", id: user.id, class:"home" %>
 				</div>
 				<div style="padding:5px"></div>
 			<% end %>

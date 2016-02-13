@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'help' => 'static_pages#help'
   get 'about' => 'static_pages#about'
+  get 'service_agreement' => 'static_pages#serviceAgreement'
   get 'contact' => 'static_pages#contact'
 
   #Gets users based on profile number

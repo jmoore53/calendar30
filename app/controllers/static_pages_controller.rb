@@ -7,6 +7,9 @@ class StaticPagesController < ApplicationController
 		@users = User.search(params[:search])
 	end
 
+	def serviceAgreement
+	end
+
 	def help
 	end
 
