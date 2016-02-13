@@ -7,7 +7,7 @@
 <br>
 <% if @users.any? %>
     <% @users.each do |user| %>
-	    <div style="text-align: center; padding-left: 20%; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
+	    <div style="text-align: center; margin-left: 20%; border: 2px solid black; border-radius:10px; width:60%; background-color:white;">
 	        <%= link_to controller: "user", action: "show", id: user.id do %>
 		        <span style="color:black"><%= user.username %> <%= user.followers.count %> followers | <%= user.following.count %> following</span>
 	        <% end %>
