@@ -4,9 +4,9 @@
 
 In order to run this and work on content, Ruby must be installed as well as the Ruby on Rails Framework must be installed. Please see Ruby on Rails Documentation for installation and general guides.
 
-### LunchBreak ###
+### Calendar30 ###
 
-* This repository is for LunchBreak.com. It is a general website for connecting people outside of the internet.
+* This repository is for calendar30.com. It is a general website for connecting people outside of the internet.
 
 * Version 1.0
 
